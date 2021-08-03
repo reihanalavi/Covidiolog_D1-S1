@@ -4380,6 +4380,7 @@ layout.GetHeight()));isChanged=true}}if(isChanged)wi.SetBboxChanged()}GetPropert
 		C3.Plugins.Sprite.Cnds.OnCreated,
 		C3.Plugins.Spritefont2.Acts.MoveToTop,
 		C3.Plugins.Sprite.Acts.MoveToBottom,
+		C3.Plugins.Touch.Cnds.OnTouchStart,
 		C3.Plugins.Function.Cnds.OnFunction,
 		C3.Plugins.Function.Cnds.CompareParam,
 		C3.Plugins.Sprite.Acts.SetAnimFrame,
@@ -4422,6 +4423,7 @@ layout.GetHeight()));isChanged=true}}if(isChanged)wi.SetBboxChanged()}GetPropert
 		C3.Plugins.Audio.Acts.Stop,
 		C3.Plugins.System.Cnds.PickRandom,
 		C3.Plugins.System.Cnds.TriggerOnce,
+		C3.Plugins.Sprite.Cnds.CompareOpacity,
 		C3.Plugins.Audio.Acts.SetVolume,
 		C3.Plugins.Sprite.Exps.AnimationFrameCount,
 		C3.Plugins.Sprite.Acts.SetVisible,
@@ -4516,6 +4518,7 @@ layout.GetHeight()));isChanged=true}}if(isChanged)wi.SetBboxChanged()}GetPropert
 		{instructions: 0},
 		{area: 0},
 		{areaInstructions: 0},
+		{pinchat: 0},
 		{base: 0},
 		{typingzone: 0},
 		{IN_GAME_BLUSUKAN: 0},
@@ -4733,6 +4736,11 @@ layout.GetHeight()));isChanged=true}}if(isChanged)wi.SetBboxChanged()}GetPropert
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => v0.GetValue();
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			return () => ((n0.ExpObject() + n1.ExpObject()) + 25);
 		},
 		p => {
 			const n0 = p._GetNode(0);
@@ -4970,11 +4978,12 @@ layout.GetHeight()));isChanged=true}}if(isChanged)wi.SetBboxChanged()}GetPropert
 			const v0 = p._GetNode(0).GetVar();
 			return () => and("Rp", v0.GetValue());
 		},
+		() => "play",
+		() => "A",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => and("QnA_", v0.GetValue());
 		},
-		() => "play",
 		() => 1050,
 		p => {
 			const n0 = p._GetNode(0);
@@ -4993,7 +5002,6 @@ layout.GetHeight()));isChanged=true}}if(isChanged)wi.SetBboxChanged()}GetPropert
 			const v2 = p._GetNode(2).GetVar();
 			return () => and((and((v0.GetValue() + "_"), f1(0)) + "_"), v2.GetValue());
 		},
-		() => "A",
 		() => "B",
 		() => "newChatAnswer",
 		p => {
@@ -5035,6 +5043,7 @@ layout.GetHeight()));isChanged=true}}if(isChanged)wi.SetBboxChanged()}GetPropert
 		() => "QnA_2",
 		() => "backMenu",
 		() => "answer",
+		() => 80,
 		p => {
 			const n0 = p._GetNode(0);
 			return () => (n0.ExpObject() + 1);
@@ -5220,8 +5229,8 @@ layout.GetHeight()));isChanged=true}}if(isChanged)wi.SetBboxChanged()}GetPropert
 			return () => and("MODE_", v0.GetValue());
 		},
 		() => "FIRST",
-		() => "SECOND",
-		() => "mid"
+		() => "mid",
+		() => "SECOND"
 	];
 }
 
